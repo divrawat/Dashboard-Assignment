@@ -57,7 +57,11 @@ const Dashboard = () => {
 
 
                     <div className="flex items-center gap-5 md:pr-10 pr-5">
-                        <div><IoMdNotificationsOutline size={35} color="#0057CA" className="cursor-pointer p-2 bg-[#f0efef] rounded-xl" /></div>
+                        <div>
+                        <div className="absolute px-1 text-white rounded-21 text-[9px] bg-[red] ml-6 mt-[-4px]">2</div>
+                            <IoMdNotificationsOutline size={35} color="#0057CA" className="cursor-pointer p-2 bg-[#f0efef] rounded-xl" />
+                            
+                        </div>
                         <div className="hidden md:block"><img src="/girl.webp" className="h-[35px] w-[38px] rounded-lg" /></div>
                         <div className="hidden md:block">
                             <div className="text-sm font-bold text-[#394663]">Niraj</div>
