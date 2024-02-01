@@ -1,4 +1,3 @@
-import { MdDashboardCustomize } from "react-icons/md";
 import { GrHomeRounded } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import { PiStudentBold } from "react-icons/pi";
@@ -15,6 +14,13 @@ import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { CiMail } from "react-icons/ci";
 import React, { useRef } from 'react';
 
+import {
+    Card,
+    CardBody,
+    CardHeader,
+} from "@material-tailwind/react";
+import Chart from "react-apexcharts";
+
 const Dashboard = () => {
 
     const menuRef = useRef(null);
@@ -28,24 +34,118 @@ const Dashboard = () => {
         }
     };
 
+
+    const chartConfig = {
+        type: "bar",
+        height: 240,
+        series: [
+            {
+                name: "Sales",
+                data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+            },
+        ],
+        options: {
+            chart: {
+                toolbar: {
+                    show: false,
+                },
+            },
+            title: {
+                show: "",
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            // colors: ["#020617"],
+            colors: ["#2A50ED"],
+            plotOptions: {
+                bar: {
+                    columnWidth: "40%",
+                    borderRadius: 2,
+                },
+            },
+            xaxis: {
+                axisTicks: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                labels: {
+                    style: {
+                        colors: "#616161",
+                        fontSize: "12px",
+                        fontFamily: "inherit",
+                        fontWeight: 400,
+                    },
+                },
+                categories: [
+                    "Apr",
+                    "May",
+                    "Jun",
+                    "Jul",
+                    "Aug",
+                    "Sep",
+                    "Oct",
+                    "Nov",
+                    "Dec",
+                ],
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: "#616161",
+                        fontSize: "12px",
+                        fontFamily: "inherit",
+                        fontWeight: 400,
+                    },
+                },
+            },
+            grid: {
+                show: true,
+                borderColor: "#dddddd",
+                strokeDashArray: 5,
+                xaxis: {
+                    lines: {
+                        show: true,
+                    },
+                },
+                padding: {
+                    top: 5,
+                    right: 20,
+                },
+            },
+            fill: {
+                opacity: 0.8,
+            },
+            tooltip: {
+                theme: "dark",
+            },
+        },
+    };
+
+
+
+
+
     return (
 
         <div className="flex h-[100%] bg-[#EEF0F6] font-sans items">
-            
-                <div ref={menuRef} id="menu" className="pt-7 pl-7 pr-7 text-[#778194] shadow-lg hidden bg-white lg:block mt-[50px] md:mt-0 absolute md:static w-[100vw] md:w-[100px] mx-auto">
-                    <div className="mb-4 cursor-pointer w-[40px] mx-auto"><img src="/rectangle.png" height={40} width={40} /></div>
-                    <div className="mb-4 cursor-pointer w-[35px] mx-auto"><GrHomeRounded size={35} className="p-2 bg-[#2A50ED] text-white rounded-[7px]" /></div>
-                    <div className="mb-4 cursor-pointer w-[35px] mx-auto"><IoSearch size={35} className="p-2 " /></div>
-                    <div className="mb-4 cursor-pointer w-[35px] mx-auto"><PiStudentBold size={35} className="p-2" /></div>
-                    <div className="mb-4 cursor-pointer w-[35px] mx-auto"><IoDocumentTextOutline size={35} className="p-2" /></div>
-                    <div className="mb-4 cursor-pointer w-[35px] mx-auto"><AiOutlineDollarCircle size={35} className="p-2" /></div>
-                </div>
-            
+
+            <div ref={menuRef} id="menu" className="pt-7 pl-7 pr-7 text-[#778194] shadow-lg hidden bg-white lg:block mt-[50px] md:mt-0 absolute md:fixed h-[100vh] w-[100vw] md:w-[100px] mx-auto">
+                <div className="mb-4 cursor-pointer w-[40px] mx-auto"><img src="/rectangle.png" height={40} width={40} /></div>
+                <div className="mb-4 cursor-pointer w-[35px] mx-auto"><GrHomeRounded size={35} className="p-2 bg-[#2A50ED] text-white rounded-[7px]" /></div>
+                <div className="mb-4 cursor-pointer w-[35px] mx-auto"><IoSearch size={35} className="p-2 " /></div>
+                <div className="mb-4 cursor-pointer w-[35px] mx-auto"><PiStudentBold size={35} className="p-2" /></div>
+                <div className="mb-4 cursor-pointer w-[35px] mx-auto"><IoDocumentTextOutline size={35} className="p-2" /></div>
+                <div className="mb-4 cursor-pointer w-[35px] mx-auto"><AiOutlineDollarCircle size={35} className="p-2" /></div>
+            </div>
 
 
 
 
-            <div className=" w-full">
+
+            <div className=" w-full lg:ml-[90px]">
 
                 <div className="flex justify-between shadow-lg md:pl-10 pl-5 pb-[13px] pt-2 bg-white ">
 
@@ -58,9 +158,9 @@ const Dashboard = () => {
 
                     <div className="flex items-center gap-5 md:pr-10 pr-5">
                         <div>
-                        <div className="absolute px-1 text-white rounded-21 text-[9px] bg-[red] ml-6 mt-[-4px]">2</div>
+                            <div className="absolute px-1 text-white rounded-21 text-[9px] bg-[red] ml-6 mt-[-4px]">2</div>
                             <IoMdNotificationsOutline size={35} color="#0057CA" className="cursor-pointer p-2 bg-[#f0efef] rounded-xl" />
-                            
+
                         </div>
                         <div className="hidden md:block"><img src="/girl.webp" className="h-[35px] w-[38px] rounded-lg" /></div>
                         <div className="hidden md:block">
@@ -156,7 +256,7 @@ const Dashboard = () => {
                             </div>
 
 
-                            <div className="sm:flex gap-5 items-center pt-5 xl:pt-0">
+                            <div className="flex flex-wrap gap-5 items-center pt-5 xl:pt-0">
 
                                 <div className="w-[100px] pb-3 md:pb-0">
                                     <select className="cursor-pointer border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 ">
@@ -198,7 +298,15 @@ const Dashboard = () => {
                         </div>
 
                         <div className="pl-8 pr-8 pb-10">
-                            GRAPH
+
+                            <Card>
+                                <CardHeader floated={false} shadow={false} color="transparent" className="flex flex-col gap-4 rounded-none md:flex-row md:items-center">
+                                </CardHeader>
+                                <CardBody className="px-2 pb-0">
+                                    <Chart {...chartConfig} />
+                                </CardBody>
+                            </Card>
+
                         </div>
                     </div>
 
