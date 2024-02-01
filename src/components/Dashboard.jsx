@@ -56,7 +56,6 @@ const Dashboard = () => {
             dataLabels: {
                 enabled: false,
             },
-            // colors: ["#020617"],
             colors: ["#2A50ED"],
             plotOptions: {
                 bar: {
@@ -418,7 +417,7 @@ const Dashboard = () => {
 
                             <div className="md:flex items-center gap-8 md:w-[312px] mb-7 md:mb-0">
                                 <div><img src="/logo.jpg" className="h-[90px] w-[100px] mx-auto" /></div>
-                                <div className="text-center md:">
+                                <div>
                                     <div className="text-2xl text-[#394663] font-semibold">Jaspreet Singh</div>
                                     <div className="text-[#414C69] pt-1">UNItravel canada ltd</div>
                                 </div>
